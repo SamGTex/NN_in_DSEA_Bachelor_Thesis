@@ -1,0 +1,42 @@
+\chapter{Verwendete Methoden}
+In diesem Kapitel werden die verwendeten Methoden vorgestellt.
+\autoref{sec:chi2} behandelt die $\Chi^2$-Distanz als Abstandsmaß zweier diskreter Verteilungen.
+In \autoref{sec:bootstrap} wird die Berechnung der Unsicherheiten mithilfe von Bootstrapping erläutert.
+
+\section{Chi-Quadrat-Distanz} \label{sec:chi2}
+Die $\chi^2$-Distanz\cite{LIU20022617} ist ein gewichtetes Abstandsmaß und dient zur Überprüfung von Konvergenz.
+Der Abstand zwischen der wahren Verteilung $f$ und der rekonstruierten Verteilung $\hat{f}$ wird über die Abstände der einzelnen Bins $j$ nach
+\begin{equation}
+    \chi^2 = \frac{1}{2} \sum_{j=1}^{n} \frac{(\hat{f}_j - f_j)^2}{\hat{f_j} + f_j}
+\end{equation}
+bestimmt.
+Ist die $\chi^2$-Distanz kleiner oder gleich der $\chi^2$-Distanz in der vorherigen DSEA-Iteration, kann das Verfahren abgebrochen werden.
+
+\section{Bootstrapping: Abschätzung der Unsicherheiten} \label{sec:bootstrap}
+Bootstrapping\cite{lewis_poole_2004} ist eine Methode zur Bestimmung der Unsicherheiten von Wahrscheinlichkeitsmodellen.
+Sie ist sinnvoll, wenn normalerweise nur ein kleiner Teil des Trainingsdatensatzes entfaltet wird.
+\\
+Die Methode beruht auf dem "`Resampling"', also einer Veränderung des ursprünglichen Datensatzes durch Mehrfachzählung und Nichtbeachtung von Events.
+\\
+\\
+In \textbf{Schritt 1} wird der Datensatz durch Ersetzung von Events variiert.
+Dieser Datensatz wird in \textbf{Schritt 2} mit DSEA (siehe \autoref{sec:dsea}) entfaltet.
+In \textbf{Schritt 3} wird das entfaltete Spektrum gespeichert.
+Die Schritte 1-3 werden $n$-mal wiederholt.
+\\
+\\
+Anschließend kann die Verteilung jedes einzelnen Energie-Bins untersucht werden.
+Zur Bestimmung des Mittelwerts kann der Median 
+\begin{equation}
+    \tilde {x} =
+    \begin{cases}
+        x_{m+1} & \text{ ,für ungerades n = 2m+1}\\
+        \frac{1}{2} (x_{m}+x_{m+1}) & \text{ ,für gerades n = 2m}
+    \end{cases}
+\end{equation}
+für jeden Energie-Bin berechnet werden, wobei $n$ die Anzahl der Entfaltungen angibt.
+Die zugehörigen Unsicherheiten können allgemein über das untere und obere Quantil angegeben werden.
+Das untere Quantil beinhaltet $\SI{16}{\percent}$ und das obere Quantil $\SI{84}{\percent}$ der Datenpunkte.
+Zwischen den Quantilen liegen also $~\SI{68}{\percent}$ der Messwerte.
+\\
+Handelt es sich um normalverteilte Daten, so sind die Quantile äquivalent zu der Standardabweichung und der Median ist gleich dem Mittelwert.

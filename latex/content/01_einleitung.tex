@@ -1,0 +1,30 @@
+\chapter{Einleitung}
+Die Astroteilchenphysik untersucht aller Art Teilchen, die von extraterrestrischen Quellen ausgesandt wurden.
+Ziel ist die Bestimmung der Position und der Eigenschaften von Himmelskörpern über die ankommenden Botenteilchen.
+Die Botenteilchen setzen sich aus geladenen Teilchen (kosmische Strahlung), Photonen $\gamma$ und Neutrinos $\nu$ zusammen.\cite{icecube_detector}
+\\
+\\
+IceCube ist ein Detektor am geographischen Südpol und ist dafür ausgelegt, hochenergetische Neutrinos nachzuweisen.
+Zum einen ist der Ort der Neutrinoquelle von großer Interesse.
+Aktive Galaxiekerne, schwarze Löcher oder auch Neutronensterne können mögliche Quellen der Neutrinos sein und sind für Physiker*innen von großem Interesse.
+Eine weitere wichtige Größe stellt das Energiespektrum der Neutrinos dar.
+\\
+Die Neutrinoenergie ist nicht direkt messbar.
+Stattdessen werden die Zerfallsprodukte der Neutrinos (Elektronen, Myonen, Tau-Leptonen) gemessen.
+Das zu lösende Problem ist die Rekonstruktion der Neutrinoenergie aus den gemessenen Größen.
+Es handelt sich um ein inverses Problem, welches grundsätzlich schlecht konditioniert ist.
+Die Rekonstruktion der Energie wird als Entfaltung bezeichnet und benötigt spezielle Ansätze.
+\\
+\\
+Der \textbf{D}ortmund \textbf{S}pectrum \textbf{E}stimation \textbf{A}lgorithm (DSEA) \cite{ruhe} betrachtet das Problem als Klassifikationsproblem.
+Unter Verwendung von Methoden des maschinellen Lernens kann eine Entfaltung mit DSEA durchgeführt werden.
+\\
+In dieser Arbeit wird zum ersten mal die Verwendung von neuronalen Netzen als Klassifizierer in DSEA untersucht.
+Dies bietet neue Möglichkeiten.
+Die bisher verwendeten Klassifizierer wurden in jeder DSEA-Iteration neu initialisiert.
+Neuronale Netze basieren auf einer Verlustfunktion.
+Es ist daher möglich den Trainingsprozess eines Modells fortzuführen, statt in jeder DSEA-Iteration von neuem zu beginnen.
+\\
+Die Struktur eines neuronalen Netzes kann an das zugrundeliegende Problem angepasst werden.
+Es gibt eine große Auswahl an Ebenen, Verlustfunktionen und Aktivierungsfunktionen.
+Duch Anpassung der Hyperparameter kann die Lösung optimiert werden.

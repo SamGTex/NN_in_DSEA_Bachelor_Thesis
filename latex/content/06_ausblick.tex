@@ -1,0 +1,34 @@
+\chapter{Fazit und Ausblick}
+
+%Ziel der Arbeit und zusammenfassung
+Ziel der Arbeit ist die Untersuchung von Entfaltungen mit neuronalen Netzen in \textbf{DSEA}.
+Das Verhalten der Parameter \textit{Epochenzahl} und Anzahl \textit{DSEA-Iterationen} wurde systematisch untersucht.
+Es wurde geprüft, wie sich NN in DSEA entwickeln, wenn in jeder Iteration ein neues Modell erstellt und trainiert wird.
+Ebenfalls wurde eine neue Methode geprüft, die nur bei auf Verlustfunktion basierenden Klassifizierern möglich ist.
+Statt in jeder Iteration ein neues Modell zu erstellen, werden die Gewichte der Kostenfunktion \textbf{eines} Modells angepasst.
+Dies führt zu einer schnelleren Konvergenz.
+Ein signifkanter Unterschied im resultierenden Spektrum konnte jedoch nicht festgestellt werden.
+\\
+%Vergleich NN und NN in DSEA: modellunabhängig, geringerer bias,
+Ebenfalls wurde eine Entfaltung über eine klassische Klassfikation mit einem NN betrachtet.
+Die Abhängigkeit vom Trainingsspektrum dieses Modells und der von neuronalen Netze in DSEA wurde zuletzt geprüft.
+Die Entfaltung über eine klassische Klassifikation zeigt einen starken Bias.
+NN in DSEA weisen auch eine große Abweichung vom wahren Spektrum auf.
+In diesem Fall liegt das nicht an einem Bias, sondern an der geringen Accuracy $< \SI{39}{\percent}$.
+Die Modellunabhängigkeit von DSEA konnte hier bestätigt werden.
+\\
+%Datensatz mit gewählten features war schwierig zu entfalten.
+Allgemein weisen die Entfaltungen des vorliegenden Datensatzes große Abweichungen auf.
+Die Entfaltung mit NN in DSEA kann möglicherweise durch einen Datensatz der Rohdaten beinhaltet verbessert werden.
+Grund dafür ist, dass die Stärke von NN nicht in der Klassifikation von tabellarischen Daten liegt.
+Bei der Klassifikation von graphischen Daten sind Convolutional Neural Networks ("`Faltendes Neuronales Netzwerk"'), kurz \textbf{CNN} unersetzbar.
+Optimal ist dafür ein Datensatz, der die drei-dimensionale Struktur des Detektors widerspiegelt.
+Dies zeigt auch die Arbeit \cite{reconstruction_nn} über die Rekonstruktion von Neutrinoereignissen mit graphischen neuronalen Netzen (GNN), die eine Erweiterung der CNNs \cite{reconstruction_nn} darstellen.
+\\
+% weitere NN mit mehr parameter testen mit Regularisierung
+Größere Modelle mit mehr Parameter haben grundsätzlich ein größeres Potenzial.
+Um Overfitting zu reduzieren, können Methoden der Regularisierung, wie die L2-Parameter-Regularisierung, Dropout oder die Batch-Norm verwendet werden.
+\\
+Auffällig waren die in allen Entfaltungen auftretenden Oszillationen.
+Zur Glättung dieser Störung könnte ebenfalls ein Regularisierungsterm in der Kostenfunktion beitragen.
+Analog zur Tikhonov-Regularisierung\cite{tikhonov}, könnte Glattheit über eine kleine zweite Ableitung gefordert werden.
